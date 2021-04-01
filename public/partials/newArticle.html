@@ -1,0 +1,39 @@
+<header
+  class="masthead"
+  style="background-image: url('img/friends-1149841.jpg')"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Create A New Article</h1>
+          <span class="subheading">
+            Fill out the form to create a new article
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<form class="col-lg-8 col-md-10 mx-auto">
+  <div class="control-group my-5">
+    <input
+      type="text"
+      placeholder="Title of article"
+      ng-model="ac.form.title"
+      style="width:100%;border:none;font-size:25px;"
+    />
+  </div>
+  <div class="control-group">
+    <textarea
+      ng-model="ac.form.desc"
+      placeholder="Write something.."
+      style="width:100%;height:250px;border:none"
+    ></textarea>
+  </div>
+  <button ng-click="ac.publish(ac.form)" class="btn btn-primary my-5">
+    Publish
+  </button>
+</form>

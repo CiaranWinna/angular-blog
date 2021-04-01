@@ -1,0 +1,36 @@
+<header
+  class="masthead"
+  style="background-image: url('img/animal-2178664.jpg')"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Live Blogs</h1>
+          <span class="subheading">
+            Edit or delete blogs currently live on the website
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="row">
+  <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="post-preview" ng-repeat="article in articles">
+      <h2 class="post-title">{{ article.title }}</h2>
+      <p class="post-subtitle">{{ article.content | limitTo: 500 }}...</p>
+
+      <button class="btn btn-primary" ng-click="editArticle(article._id)">
+        Edit
+      </button>
+      <button class="btn btn-primary" ng-click="deleteArticle(article._id)">
+        Delete
+      </button>
+
+      <hr />
+    </div>
+  </div>
+</div>

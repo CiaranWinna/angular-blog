@@ -1,0 +1,89 @@
+<header
+  class="masthead"
+  style="background-image: url('img/adorable-1866723.jpg')"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{ article[0].title }}</h1>
+          <span class="meta"
+            >Posted by
+            <a href="#">{{ article[0].articleby }}</a>
+            on {{ article[0].date | date: "MM/dd/yyyy HH:mm" }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div>
+          {{ article[0].content }}
+        </div>
+
+        <div class="my-5">
+          <button
+            ng-show="login"
+            class="btn btn-lg btn-primary"
+            ng-click="sc.upVotes()"
+            id="upVote"
+          >
+            <form>
+              <i class="fas fa-thumbs-up"> {{ upVotesNumber }}</i>
+            </form>
+          </button>
+          <button ng-show="!login" class="btn btn-lg btn-primary" id="upVote">
+            <i class="fas fa-thumbs-up"> {{ upVotesNumber }}</i>
+          </button>
+        </div>
+
+        <div class="my-5">
+          <h2>Comments</h2>
+          <div class="underline"></div>
+
+          <div class="post-preview" ng-repeat="comment in comments[0]">
+            <div class="my-5">
+              <i class="fas fa-user"></i>
+              <p class="post-title d-inline">
+                {{ comment.name }}
+                <i> - {{ comment.date | date: "MM/dd/yyyy HH:mm" }} </i>
+              </p>
+
+              <p class="post-subtitle">{{ comment.comment }}</p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div ng-show="login" class="my-2">
+          <div class="post-preview">
+            <h2>Add a new comment:</h2>
+            <div class="underline"></div>
+            <form class="my-5">
+              
+              <textarea
+                ng-model="sc.form.desc"
+                placeholder="Comment"
+                class="form-control"
+                required
+              ></textarea>
+
+              <button
+                ng-click="sc.comment(sc.form)"
+                class="btn btn-primary my-2"
+              >
+                Comment
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

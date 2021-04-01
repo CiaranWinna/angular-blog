@@ -1,0 +1,41 @@
+<header
+  class="masthead"
+  style="background-image: url('img/animal-2178664.jpg')"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Welcome to Athenry Dog Park Blog</h1>
+          <span class="subheading"
+            >Keep up to date with everything happening at the park</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h1 ng-show="!login">Our latest blog posts</h1>
+      <div ng-show="!login" class="underline"></div>
+      <h1 ng-show="login">Blogs That Are Live On The Website:</h1>
+      <div ng-show="login" class="underline"></div>
+      <div class="post-preview" ng-repeat="article in articles">
+        <a href="#!/{{ article._id }}/{{ article.title_sub }}">
+          <h2 class="post-title">{{ article.title }}</h2>
+          <h3 class="post-subtitle">{{ article.content | limitTo: 500 }}...</h3>
+        </a>
+
+        <p class="post-meta">
+          Posted by <a href="#">{{ article.articleby }}</a> on
+          {{ article.date | date: "MM/dd/yyyy" }}
+        </p>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>
